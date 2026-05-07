@@ -1,0 +1,23 @@
+{
+  "model": "/lustre/fsmisc/dataset/HuggingFace_Models/Qwen/Qwen3-4B-Instruct-2507",
+  "translation_model": null,
+  "dataset": "data/xstance/processed/xstance_test.csv",
+  "split": "train",
+  "src_lang": "deu_Latn",
+  "tgt_lang": "eng_Latn",
+  "lang_col": null,
+  "target_col": "target",
+  "input_col": "comment",
+  "max_len": 512,
+  "batch_size": 8,
+  "output_file": "translation_grid_results/Qwen/Qwen3-4B-Instruct-2507/de2en2de.csv",
+  "RTT": true,
+  "add_bias": false,
+  "save_config": "translation_grid_results/Qwen/Qwen3-4B-Instruct-2507/de2en2de_config.json",
+  "bias_induction_mode": null,
+  "clean_tokens": [
+    "assistant",
+    "user",
+    "system"
+  ]
+}

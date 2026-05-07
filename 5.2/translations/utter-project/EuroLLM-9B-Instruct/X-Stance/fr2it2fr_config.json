@@ -1,0 +1,23 @@
+{
+  "model": "/lustre/fsmisc/dataset/HuggingFace_Models/utter-project/EuroLLM-9B-Instruct",
+  "translation_model": null,
+  "dataset": "data/xstance/processed/xstance_test.csv",
+  "split": "train",
+  "src_lang": "fra_Latn",
+  "tgt_lang": "ita_Latn",
+  "lang_col": null,
+  "target_col": "target",
+  "input_col": "comment",
+  "max_len": 512,
+  "batch_size": 8,
+  "output_file": "translation_grid_results/utter-project/EuroLLM-9B-Instruct/fr2it2fr.csv",
+  "RTT": true,
+  "add_bias": false,
+  "save_config": "translation_grid_results/utter-project/EuroLLM-9B-Instruct/fr2it2fr_config.json",
+  "bias_induction_mode": null,
+  "clean_tokens": [
+    "assistant",
+    "user",
+    "system"
+  ]
+}
