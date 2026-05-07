@@ -90,7 +90,7 @@ def create_parser():
                         help='Target language code in FLORES format (e.g., deu_Latn).')
     parser.add_argument('--lang_col', default=None, type=str,
                         help='Optional column name for language filtering (e.g., "language").')
-    parser.add_argument('--topic_col', default='target', type=str, 
+    parser.add_argument('--topic_col', default=None, type=str, 
                         help='Topic column name (used for monolingual transformation)')
     parser.add_argument('--input_col', default='comment', type=str, 
                         help='Column containing the source texts')
@@ -218,7 +218,11 @@ class TranslationPipeline:
         for chunk in chunk_reader:
             # Check for required columns (only for the first chunk)
             if first_chunk:
-                required_columns = {self.args.input_col, self.args.topic_col}
+                required_columns = (
+                    {self.args.input_col, self.args.topic_col}
+                    if self.args.bias_induction_mode == "two-step"
+                    else {self.args.input_col}
+                )
                 missing = required_columns - set(chunk.columns)
                 if missing:
                     raise ValueError(f"Dataset is missing required columns: {missing}")
@@ -259,7 +263,7 @@ class TranslationPipeline:
         ).to(self.model.device)
 
         # Let PyTorch automatically choose the most efficient precision
-        with torch.amp.autocast(self.model.device):
+        with torch.amp.autocast(self.model.device.type):
             output = self.model.generate(
                 **inputs,
                 max_new_tokens=self.args.max_len,
@@ -305,7 +309,7 @@ class TranslationPipeline:
 
         # print(f"\ninput_lengths: {input_lengths.max()}")
 
-        with torch.amp.autocast(self.model.device):
+        with torch.amp.autocast(self.model.device.type):
             outputs = self.model.generate(
                 input_ids=input_ids,
                 attention_mask=attention_mask,

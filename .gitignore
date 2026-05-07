@@ -77,6 +77,7 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+*.ipynb
 
 # IPython
 profile_default/
@@ -209,3 +210,7 @@ __marimo__/
 
 # Every uncompressed directory inside data
 data/*/
+
+# Jobs & Logs
+jobs/
+logs/
