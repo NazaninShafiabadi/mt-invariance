@@ -1,0 +1,23 @@
+{
+  "model": "/lustre/fsmisc/dataset/HuggingFace_Models/utter-project/EuroLLM-9B-Instruct",
+  "translation_model": null,
+  "dataset": "data/human_transformations.csv",
+  "split": "train",
+  "src_lang": "fra_Latn",
+  "tgt_lang": "eng_Latn",
+  "lang_col": null,
+  "target_col": "target",
+  "input_col": "transformation",
+  "max_len": 512,
+  "batch_size": 8,
+  "output_file": "5.1/translations/biased/fr2en2fr.csv",
+  "RTT": true,
+  "add_bias": false,
+  "save_config": "5.1/translations/biased/fr2en2fr_config.json",
+  "bias_induction_mode": null,
+  "clean_tokens": [
+    "assistant",
+    "user",
+    "system"
+  ]
+}
