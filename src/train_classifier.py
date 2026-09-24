@@ -1,7 +1,7 @@
 """ 
 Sample usage:
 
-python src/finetune.py \
+python src/train_classifier.py \
 --model="/lustre/fsmisc/dataset/HuggingFace_Models/meta-llama/Llama-3.2-3B" \
 --tokenizer="/lustre/fsmisc/dataset/HuggingFace_Models/meta-llama/Llama-3.2-3B" \
 --train_file="data/BiMultiSD/train.csv" \
