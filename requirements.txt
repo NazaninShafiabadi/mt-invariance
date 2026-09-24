@@ -7,3 +7,9 @@ numpy
 pandas
 matplotlib
 langcodes
+
+# Analysis Requirements:
+sacrebleu
+scipy
+matplotlib
+spacy
